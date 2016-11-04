@@ -1,0 +1,33 @@
+{
+    "name": "xorock/zend-service-recaptcha-v2",
+    "description": "Zend Framework 3 service for Google ReCaptcha v2",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "http",
+        "zend",
+        "zf3",
+        "form",
+        "captcha",
+        "recaptcha"
+    ],
+    "require": {
+        "php": "^5.5 || ^7.0",
+        "zendframework/zend-http": "^2.5",
+        "zendframework/zend-stdlib": "^3.1",
+        "zendframework/zend-json": "^3.0",
+        "zendframework/zend-form": "^2.9",
+        "zendframework/zend-captcha": "^2.6",
+        "zendframework/zend-modulemanager": "^2.7"
+    },
+    "autoload": {
+      "psr-4": {
+        "ZfServiceReCaptcha2\\": "src/"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "ZfServiceReCaptcha2\\": "test/"
+      }
+    }
+}
