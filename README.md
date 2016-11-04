@@ -1,6 +1,6 @@
-# PHPTAL Integration for Zend Framework 3
+Zend Framework 3 integration with Google ReCaptcha v2
 
-Provides [Goofle ReCaptcha v2](https://www.google.com/recaptcha/intro/index.html) integration for
+Provides [Google ReCaptcha v2](https://www.google.com/recaptcha/intro/index.html) integration for
 [Zend Framework 3](https://github.com/zendframework/zendframework).
 
 ## Installation
