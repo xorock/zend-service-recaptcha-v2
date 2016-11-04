@@ -1,9 +1,15 @@
 <?php
 
+use ZfServiceReCaptcha2\Form\Element;
 use ZfServiceReCaptcha2\Form\View\Helper\Captcha\ReCaptcha2;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
+    'form_elements' => [
+        'factories' => [
+            Element\ReCaptcha2::class => Element\ReCaptcha2Factory::class,
+        ],
+    ],
     'view_helpers' => [
         'aliases' => [
             'captcha/recaptcha2'          => ReCaptcha2::class,

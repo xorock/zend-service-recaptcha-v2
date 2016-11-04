@@ -1,0 +1,14 @@
+<?php
+
+return [
+    'zfservicerecaptcha2' => [
+        'recaptcha' => [
+            'options' => [
+                // Captcha options
+                'hl' => 'en',
+                'public_key'  => 'Generated public key',
+                'private_key' => 'Generated private key'
+            ],
+        ]
+    ]
+];

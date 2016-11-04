@@ -1,4 +1,4 @@
-Zend Framework 3 integration with Google ReCaptcha v2
+#Zend Framework 3 integration with Google ReCaptcha v2
 
 Provides [Google ReCaptcha v2](https://www.google.com/recaptcha/intro/index.html) integration for
 [Zend Framework 3](https://github.com/zendframework/zendframework).
@@ -68,4 +68,39 @@ protected $_attributes = array(
     'callback'         => null,
     'expired-callback' => null
 );
+```
+
+## ReCaptcha2 form element
+
+ZfServiceReCaptcha2 component also comes with a predefined element `ReCaptcha2`, which extends built-in `\Zend\Form\Element\Captcha`.
+By default, it consumes following config:
+
+```php
+return [
+    'zfservicerecaptcha2' => [
+        'recaptcha' => [
+            'options' => [
+                // Captcha options
+                'hl' => 'en',
+                'public_key'  => 'Generated public key',
+                'private_key' => 'Generated private key'
+            ],
+        ]
+    ]
+];
+```
+
+It is convenient to set Your ReCaptcha keys and other options in general application configuration.
+You can use this element by simply defining
+
+```php
+use ZfServiceReCaptcha2\Form\Element\ReCaptcha2;
+
+$this->add([
+    'type'       => ReCaptcha2::class,
+    'name'       => 'g-recaptcha-response',
+    'options'    => [
+        'label' => 'Please answer question',
+    ],
+]);
 ```
