@@ -1,4 +1,4 @@
-Zend Framework 3 integration with Google ReCaptcha v2
+#Zend Framework 3 integration with Google ReCaptcha v2
 
 Provides [Google ReCaptcha v2](https://www.google.com/recaptcha/intro/index.html) integration for
 [Zend Framework 3](https://github.com/zendframework/zendframework).
