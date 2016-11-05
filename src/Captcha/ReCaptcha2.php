@@ -16,6 +16,12 @@ class ReCaptcha2 extends AbstractAdapter
     /**#@-*/
     
     /**
+     * ReCaptcha response field name
+     * @var string
+     */
+    const RESPONSE = 'g-recaptcha-response';
+    
+    /**
      * Error messages
      * @var array
      */
@@ -24,12 +30,6 @@ class ReCaptcha2 extends AbstractAdapter
         self::ERR_CAPTCHA   => 'Failed to validate captcha',
         self::BAD_CAPTCHA   => 'Captcha value is wrong: %value%',
     ];
-    
-    /**
-     * ReCaptcha response field name
-     * @var string
-     */
-    protected $RESPONSE  = 'g-recaptcha-response';
     
     /**
      * Recaptcha service object
@@ -88,14 +88,14 @@ class ReCaptcha2 extends AbstractAdapter
             $value = $context;
         }
 
-        if (empty($value[$this->RESPONSE])) {
+        if (empty($value[self::RESPONSE])) {
             $this->error(self::MISSING_VALUE);
             return false;
         }
 
         $service = $this->getService();
 
-        $res = $service->verify($value[$this->RESPONSE]);
+        $res = $service->verify($value[self::RESPONSE]);
 
         if (!$res) {
             $this->error(self::ERR_CAPTCHA);

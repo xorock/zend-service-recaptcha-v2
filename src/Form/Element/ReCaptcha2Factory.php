@@ -32,6 +32,7 @@ class ReCaptcha2Factory implements FactoryInterface
         }
         
         $captchaElement = new ReCaptcha2();
+        $captchaElement->setName(CaptchaReCaptcha2::RESPONSE);
         $captchaElement->setCaptcha($captchaOptions);
         
         return $captchaElement;

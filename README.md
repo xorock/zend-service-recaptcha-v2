@@ -98,7 +98,8 @@ use ZfServiceReCaptcha2\Form\Element\ReCaptcha2;
 
 $this->add([
     'type'       => ReCaptcha2::class,
-    'name'       => 'g-recaptcha-response',
+    // Field name is defined by factory
+    // 'name'       => 'g-recaptcha-response', 
     'options'    => [
         'label' => 'Please answer question',
     ],
