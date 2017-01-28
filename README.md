@@ -49,7 +49,7 @@ Parameters are published inside 'script' tag, while the attributes referes to 'd
  *
  * @var array
  */
-protected $_params = array(
+protected $params = array(
     'onload' => null,
     'render' => 'onload',
     'hl'     => 'en'
@@ -60,7 +60,7 @@ protected $_params = array(
  *
  * @var array
  */
-protected $_attributes = array(
+protected $attributes = array(
     'class'            => 'g-recaptcha',
     'theme'            => 'light',
     'type'             => 'image',
