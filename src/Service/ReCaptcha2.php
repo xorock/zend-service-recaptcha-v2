@@ -12,14 +12,14 @@ use Zend\Http\PhpEnvironment\RemoteAddress;
 use Zend\Stdlib\ArrayUtils;
 
 class ReCaptcha2
-{    
+{
     /**
      * URI to the verify server
      *
      * @var string
      */
     const VERIFY_SERVER = 'https://www.google.com/recaptcha/api/siteverify';
-    
+
     /**
      * Public key used when displaying the captcha
      *
@@ -40,14 +40,14 @@ class ReCaptcha2
      * @var string
      */
     protected $ip = null;
-    
+
     /**
      * Response from the verify server
      *
      * @var Response
      */
     protected $response = null;
-    
+
     /**
      * Parameters for the script object
      *
@@ -58,7 +58,7 @@ class ReCaptcha2
         'render' => 'onload',
         'hl'     => 'en'
     );
-    
+
     /**
      * Attributes for div element
      *
@@ -69,8 +69,11 @@ class ReCaptcha2
         'theme'            => 'light',
         'type'             => 'image',
         'tabindex'         => 0,
+        'size'             => null,
         'callback'         => null,
-        'expired-callback' => null
+        'expired-callback' => null,
+        'expired-callback' => null,
+        'error-callback'   => null,
     );
 
 
@@ -110,7 +113,7 @@ class ReCaptcha2
             $this->setAttributes($attributes);
         }
     }
-    
+
     /**
      * Set the ip property
      *
@@ -133,7 +136,7 @@ class ReCaptcha2
     {
         return $this->ip;
     }
-    
+
     /**
      * Get the public key
      *
@@ -179,7 +182,7 @@ class ReCaptcha2
 
         return $this;
     }
-    
+
     /**
      * Get a single parameter
      *
@@ -190,7 +193,7 @@ class ReCaptcha2
     {
         return $this->params[$key];
     }
-    
+
     /**
      * Set a single parameter
      *
@@ -208,7 +211,7 @@ class ReCaptcha2
 
         return $this;
     }
-    
+
     /**
      * Get the parameter array
      *
@@ -218,7 +221,7 @@ class ReCaptcha2
     {
         return $this->params;
     }
-    
+
     /**
      * Set parameters
      *
@@ -231,7 +234,7 @@ class ReCaptcha2
         if ($params instanceof Traversable) {
             $params = ArrayUtils::iteratorToArray($params);
         }
-        
+
         if (!is_array($params)) {
             throw new Exception\InvalidArgumentException(sprintf(
                 '%s expects an array or Traversable set of params; received "%s"',
@@ -246,7 +249,7 @@ class ReCaptcha2
 
         return $this;
     }
-    
+
     /**
      * Get a single attribute
      *
@@ -257,7 +260,7 @@ class ReCaptcha2
     {
         return $this->attributes[$key];
     }
-    
+
     /**
      * Set a single attribute
      *
@@ -275,7 +278,7 @@ class ReCaptcha2
 
         return $this;
     }
-    
+
     /**
      * Get attributes array
      *
@@ -285,7 +288,7 @@ class ReCaptcha2
     {
         return $this->attributes;
     }
-    
+
     /**
      * Set attributes array
      *
@@ -311,7 +314,7 @@ class ReCaptcha2
 
         return $this;
     }
-    
+
     /**
      * Post a solution to the verify server
      *
@@ -342,7 +345,7 @@ class ReCaptcha2
                    ->setEncType(HttpClient::ENC_FORMDATA);
         return $httpClient->send();
     }
-    
+
     /**
      * Verify the user input
      *
@@ -357,7 +360,7 @@ class ReCaptcha2
         if (empty($responseField)) {
             throw new Exception\InvalidArgumentException('Missing response field');
         }
-        
+
         $response = $this->post($responseField);
         return new Response(null, null, $response);
     }
