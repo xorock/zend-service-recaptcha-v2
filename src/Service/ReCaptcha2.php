@@ -72,7 +72,6 @@ class ReCaptcha2
         'size'             => null,
         'callback'         => null,
         'expired-callback' => null,
-        'expired-callback' => null,
         'error-callback'   => null,
     );
 
